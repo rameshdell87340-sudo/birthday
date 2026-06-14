@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ritu ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;color:#fff;overflow-x:hidden;
+background:linear-gradient(-45deg,#ff4d88,#a855f7,#ff7eb3,#7c3aed);
+background-size:400% 400%;animation:bg 12s ease infinite;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+.hidden{display:none}
+.btn{padding:14px 28px;border:none;border-radius:40px;font-size:18px;font-weight:bold;cursor:pointer}
+h1{font-size:min(12vw,70px)}
+h2{margin:15px 0}
+.heart{position:fixed;animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(100vh)}to{transform:translateY(-120px)}}
+.confetti{position:fixed;font-size:24px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+#gallery{position:relative;height:80vh;width:100%}
+.photo{
+position:absolute;width:90px;height:90px;border-radius:15px;
+object-fit:cover;border:3px solid white;
+transition:all 2s ease;
+background:rgba(255,255,255,.25)
+}
+.letterBox{
+max-width:900px;background:rgba(255,255,255,.15);
+padding:25px;border-radius:20px;backdrop-filter:blur(10px)
+}
+.giftHeart{font-size:120px;animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+</style>
+</head>
+<body>
+
+<div id="welcome" class="screen">
+<h1>🎂 Happy Birthday Ritu ❤️</h1>
+<h2>15 June ✨</h2>
+<p>A Special Surprise Awaits You...</p><br>
+<button class="btn" onclick="startSurprise()">Open Surprise ✨</button>
+</div>
+
+<div id="birthday" class="screen hidden">
+<h1>👑 HAPPY BIRTHDAY RITU ❤️</h1>
+<p>The most beautiful girl in the world ✨</p><br>
+<button class="btn" onclick="showMemories()">See Your Memories 📸</button>
+</div>
+
+<div id="memories" class="screen hidden">
+<h1>📸 Our Memories</h1>
+<div id="gallery"></div>
+<button class="btn" onclick="showLetter()">Read My Letter 💌</button>
+</div>
+
+<div id="letter" class="screen hidden">
+<div class="letterBox">
+<h1>💌 A Letter For You</h1>
+<p>
+🎂🎉 Happy Birthday, My Dearest Ritu ❤️🥺💖
+
+Today is one of the most special days of my life because it's the birthday of the most beautiful, cutest, sweetest, and most precious girl in my world. 🎂✨❤️
+
+First of all, I pray that God blesses you with good health, endless happiness, success, peace, and all the love you deserve. 🙏🏻💖🌹 I always want to see you healthy, smiling, and happy because your smile is my favorite thing in this world. 😊❤️
+
+Ritu, I don't think words can ever explain how much I love you. ❤️ Every day, my love for you grows stronger. When I think about my future, I see you beside me. When I imagine my happiest moments, I see you there. I want to spend my whole life with you, creating beautiful memories, supporting each other, and growing old together. 🥺💍❤️
+
+You are my prettiest girl, my comfort, my happiness, and my safe place. 💕🫂 Every time I talk to you, my day becomes better. Every time I think about you, I smile. 😊💖
+
+And you know this already, but I still want to say it again... You will always be my sweet little baby. 🥺👶🏻💕 No matter how much time passes, I always want to care for you, protect you, spoil you with love, and make you feel safe. ❤️🫂 I love taking care of you, and I always want to be there for you whenever you need me. 🌹💖
+
+Honestly, one of my favorite feelings is imagining you in my arms, safe and happy. 🫂❤️ I wish I could hug you tightly today and never let go. 🤗💞 I wish I could hold your hand, look into your beautiful eyes, and tell you in person how much you mean to me. 😘❤️
+
+Thank you for being part of my life. ❤️ Thank you for your smile, your kindness, your softness, your care, and every beautiful moment we've shared. You have made my life brighter in so many ways, and I will always be grateful for that. 🌹✨💖
+
+I promise to always love you, respect you, support you, and stand by your side. ❤️🫂 I promise to celebrate your happiness, wipe away your tears, and remind you every day how special you are. 💕🥺
+
+On your special day, I just want you to know that you are deeply loved. ❤️ You are my favorite notification, my favorite thought, my favorite smile, and my favorite person. 💖😘
+
+May this year bring you endless happiness, beautiful memories, success, laughter, good health, and everything your heart desires. 🎂🎉🌹✨
+
+Happy Birthday to the most beautiful girl in the world, my pretty girl, my sweet little baby, my Ritu. ❤️🎂👑💋💞
+
+I love you more than words can ever describe. ❤️🫂😘💋💕♾️
+
+Forever Yours,
+
+❤️ Dino ❤️
+</p>
+</div><br>
+<button class="btn" onclick="showGift()">Open Your Gift 🎁</button>
+</div>
+
+<div id="gift" class="screen hidden">
+<div style="font-size:70px">🧸 🧸 🧸</div>
+<div class="giftHeart">❤️</div>
+<h2>For My Princess Ritu 👑</h2>
+<p>A giant heart full of love and unlimited plushies for you ❤️</p>
+<h2>Forever Yours, Dino ❤️</h2>
+</div>
+
+<script>
+const photos=[
+'photo1.jpeg','photo2.jpeg','photo3.jpeg','photo4.jpeg','photo5.jpeg',
+'photo6.jpeg','photo7.jpeg','photo8.jpeg','photo9.jpeg','photo10.jpeg'
+];
+
+for(let i=0;i<35;i++){
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(15+Math.random()*25)+'px';
+h.style.animationDuration=(5+Math.random()*5)+'s';
+document.body.appendChild(h);
+}
+
+function startSurprise(){
+document.getElementById('welcome').classList.add('hidden');
+for(let i=0;i<120;i++){
+let c=document.createElement('div');
+c.className='confetti';
+c.innerHTML=['🎉','🎊','✨','❤️'][Math.floor(Math.random()*4)];
+c.style.left=Math.random()*100+'vw';
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),3000);
+}
+setTimeout(()=>{
+document.getElementById('birthday').classList.remove('hidden');
+},2500);
+}
+
+function showMemories(){
+document.getElementById('birthday').classList.add('hidden');
+document.getElementById('memories').classList.remove('hidden');
+
+const g=document.getElementById('gallery');
+g.innerHTML='';
+
+photos.forEach((p,i)=>{
+let img=document.createElement('img');
+img.src=p;
+img.className='photo';
+img.style.left=Math.random()*80+'%';
+img.style.top=Math.random()*70+'%';
+g.appendChild(img);
+
+setTimeout(()=>{
+const pos=[
+[45,5],[30,15],[60,15],[20,30],[40,30],
+[60,30],[25,50],[45,60],[65,50],[45,80]
+];
+img.style.left=pos[i][0]+'%';
+img.style.top=pos[i][1]+'%';
+},1000);
+});
+}
+
+function showLetter(){
+document.getElementById('memories').classList.add('hidden');
+document.getElementById('letter').classList.remove('hidden');
+}
+
+function showGift(){
+document.getElementById('letter').classList.add('hidden');
+document.getElementById('gift').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
